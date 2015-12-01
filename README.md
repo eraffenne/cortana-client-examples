@@ -1,10 +1,10 @@
 # Cortana APIs Client Examples
 
-Created from the [https://github.com/keedio/bing-speech-to-text-example](Bing STT Example project).
+Created from the [Bing STT Example project](https://github.com/keedio/bing-speech-to-text-example).
 
 ### Get ready to run the application
 
-Quick-and-dirty usage example of [https://gallery.cortanaanalytics.com/](Cortana) RESTful APIs.
+Quick-and-dirty usage example of [Cortana](https://gallery.cortanaanalytics.com/) RESTful APIs.
 This application has been developed using Spring Boot.
 
 Steps to use this app:
