@@ -1,22 +1,36 @@
-package com.keedio.services;
+package org.keedio.examples.cortana;
 
 import org.apache.commons.io.IOUtils;
+import org.keedio.examples.IService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
-public class Speech2text extends CortanaService {
+@Component
+@Profile("speech2text")
+public class Speech2text extends CortanaService implements IService {
 
     private static final Logger log = LoggerFactory.getLogger(Speech2text.class);
 
-    public Speech2text(Map<String, String> params) {
-        super(params);
+    @Value("${scope}")     private String scope;
+    @Value("${appID}")     private String appID;
+    @Value("${appSecret}") private String appSecret;
+    @Value("${deviceID}")  private String deviceID;
+
+    public Speech2text() {
+        super();
     }
 
     /**
@@ -32,10 +46,8 @@ public class Speech2text extends CortanaService {
      * @return a {@see Conversion} object encapsulating the info returned by the Microsoft API.
      * @throws IOException
      */
-    @Override
     public HashMap<String, String> request(String file) throws IOException {
-
-        String authToken = "Bearer " + token;
+        String authToken = "Bearer " + getToken(appID, appSecret, scope);
 
         HttpHeaders headers = new HttpHeaders();
         List<MediaType> mediaTypes = new ArrayList<>();

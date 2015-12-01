@@ -13,7 +13,7 @@ Steps to use this app:
 2. Generate an unique UUID (command `uuidgen` in UNIX) for this app.
 3. Edit `src/main/resources/application.properties` and configure `deviceID` using the value generated at step #2 above.
 4. Register applications in your account: [https://datamarket.azure.com/account/keys](https://datamarket.azure.com/account/keys), note down app id and app secret.
-5. Edit `src/main/resources/application-$APPNAME.properties` and configure `appID` and `appSecret` using the values generated at step #4 above.
+5. Edit `src/main/resources/application-PROFILE.properties` and configure `appID` and `appSecret` using the values generated at step #4 above.
 
 ### Run the application
 
@@ -24,4 +24,4 @@ To request a service, use:
 Available profiles:
 
 - speech2text: convert a wav file to text. ARG: full path to the wav file to convert.
-- translator: translate a text to english. ARG: the text to be translated (enclosed with doble quotes).
+- translator: translate a text to english. ARG: the text to be translated (enclosed with double quotes).

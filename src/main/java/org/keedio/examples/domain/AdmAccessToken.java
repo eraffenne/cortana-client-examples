@@ -1,4 +1,4 @@
-package com.keedio.domain;
+package org.keedio.examples.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

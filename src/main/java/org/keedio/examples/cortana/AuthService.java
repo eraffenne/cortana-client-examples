@@ -1,46 +1,22 @@
-package com.keedio.services;
+package org.keedio.examples.cortana;
 
-import com.keedio.domain.AdmAccessToken;
+import org.keedio.examples.domain.AdmAccessToken;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Map;
 
-public abstract class CortanaService {
+public class AuthService {
 
     private static final String DATAMARKET_ACCESS_URI = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
-
-    protected String deviceID;
-    protected String appID;
-    protected String appSecret;
-    protected String scope;
-    protected String token;
-    public Boolean isTokenSet;
-
-    public CortanaService(Map<String, String> params) {
-        this.deviceID = params.get("deviceID");
-        this.appID = params.get("appID");
-        this.appSecret = params.get("appSecret");
-        this.scope = params.get("scope");
-        this.isTokenSet = false;
-        try {
-            authenticate();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
-
-    abstract public Object request(String arg) throws IOException;
 
     /**
      * Authentication helper method.
      *
      * @throws UnsupportedEncodingException
      */
-    public void authenticate() throws UnsupportedEncodingException {
+    public static String token(String appID, String appSecret, String scope) throws UnsupportedEncodingException {
         RestTemplate restTemplate = new RestTemplate();
 
         String body =
@@ -56,8 +32,6 @@ public abstract class CortanaService {
         ResponseEntity<AdmAccessToken> result =
                 restTemplate.exchange(DATAMARKET_ACCESS_URI, HttpMethod.POST, entity, AdmAccessToken.class);
 
-        this.token = result.getBody().getAccess_token();
-        this.isTokenSet = true;
+        return result.getBody().getAccess_token();
     }
-
 }
