@@ -1,5 +1,7 @@
 package org.keedio.examples.cortana;
 
+import org.keedio.examples.domain.AuthService;
+
 import java.io.UnsupportedEncodingException;
 
 abstract class CortanaService {

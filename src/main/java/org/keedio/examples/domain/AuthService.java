@@ -1,6 +1,5 @@
-package org.keedio.examples.cortana;
+package org.keedio.examples.domain;
 
-import org.keedio.examples.domain.AdmAccessToken;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 

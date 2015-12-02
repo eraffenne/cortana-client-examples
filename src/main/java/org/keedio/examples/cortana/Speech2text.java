@@ -29,7 +29,7 @@ public class Speech2text extends CortanaService implements IService {
     @Value("${appSecret}") private String appSecret;
     @Value("${deviceID}")  private String deviceID;
 
-    public Speech2text() {
+    Speech2text() {
         super();
     }
 

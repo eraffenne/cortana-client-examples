@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface IService {
 
-    public Object request(String arg) throws IOException;
+    Object request(String arg) throws IOException;
 
 }

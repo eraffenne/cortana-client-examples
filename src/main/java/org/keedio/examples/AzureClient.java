@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Example app showing the usage of Azure Speech-to-text REST API.
  */
 @SpringBootApplication
-public class AzureClient implements CommandLineRunner {
+class AzureClient implements CommandLineRunner {
 
     @Autowired
-    IService service;
+    private IService service;
 
     private static final Logger log = LoggerFactory.getLogger(AzureClient.class);
 
